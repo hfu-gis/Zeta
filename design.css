@@ -1,0 +1,13 @@
+header {
+    background-color: #cd63a8;
+    padding: .2em 1em;
+}
+nav {
+    background-color: #f0b1ff;
+}
+section {
+    background-color: #ffd0f1;
+}
+a {
+    text-decoration: none;
+}
