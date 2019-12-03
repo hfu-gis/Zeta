@@ -21,5 +21,22 @@
 </script>
 
 <style scoped>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: serif;
+        background-color: lightpink;
+        font-size: 20px
+    }
 
+
+
+    .login-box{
+        width: 280px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
 </style>
