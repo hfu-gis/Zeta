@@ -16,7 +16,7 @@
         </v-list-item>
         <v-list-item link :to="{name:'Order'}">
           <v-list-item-action>
-            <v-icon>mdi-cart</v-icon>
+            <v-icon>mdi-cart</v-icon> npm auditfixnpm
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Order</v-list-item-title>
