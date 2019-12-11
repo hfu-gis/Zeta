@@ -2,15 +2,15 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBX_J8tsYxFeTpX4RL1sJeYrs_Fti9QI-U",
-  authDomain: "grasshoppers-cd34e.firebaseapp.com",
-  databaseURL: "https://grasshoppers-cd34e.firebaseio.com",
-  projectId: "grasshoppers-cd34e",
-  storageBucket: "grasshoppers-cd34e.appspot.com",
-  messagingSenderId: "593907011991",
-  appId: "1:593907011991:web:b8508d375c11c6f8c5f4d2",
-  measurementId: "G-L62LQEF4J1"
-}
+  apiKey: "AIzaSyD4HL3RYB84TRsjD73JO15XbXo27EuUKj4",
+  authDomain: "zeta-35f1b.firebaseapp.com",
+  databaseURL: "https://zeta-35f1b.firebaseio.com",
+  projectId: "zeta-35f1b",
+  storageBucket: "zeta-35f1b.appspot.com",
+  messagingSenderId: "513019578438",
+  appId: "1:513019578438:web:6ad219a20f3ece1a226247",
+  measurementId: "G-WT9VX9M7NJ"
+};
 export const db = firebase.initializeApp(firebaseConfig).firestore
 // This is not always necessary
 const { TimeStamp, GeoPoint } = firebase.firestore
