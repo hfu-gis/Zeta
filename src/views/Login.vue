@@ -52,7 +52,6 @@
               name="login"
               prepend-icon="mdi-account"
               type="text"
-              :value="user.familyName"
             />
 
             <v-text-field
@@ -81,11 +80,6 @@ export default {
   props: {
     source: String
   },
-  data() {
-    return {
-      user: {}
-    }
-  },
   methods: {
     login() {
       db.connect()
@@ -93,9 +87,6 @@ export default {
           this.$emit('login', true)
         })
     }
-  },
-  created() {
-    this.user = require('../assets/data/profile')
   }
 }
 </script>
