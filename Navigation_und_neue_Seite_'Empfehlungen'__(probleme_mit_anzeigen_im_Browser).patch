@@ -1,0 +1,669 @@
+Index: src/Arzt_finden
+===================================================================
+--- src/Arzt_finden	(revision 3288994c22f80b616d781b2eb8ea40d4f4b0eb9e)
++++ src/Arzt_finden	(revision 3288994c22f80b616d781b2eb8ea40d4f4b0eb9e)
+@@ -1,72 +0,0 @@
+-<template>
+-    <v-app id="inspire">
+-        <v-navigation-drawer
+-                v-model="drawer"
+-                app dark
+-                right
+-        >
+-            <v-list dense>
+-                <v-list-item link :to="{name:'Overview'}">
+-                    <v-list-item-action>
+-                        <v-icon>mdi-spa</v-icon>
+-                    </v-list-item-action>
+-                    <v-list-item-content>
+-                        <v-list-item-title>Overview</v-list-item-title>
+-                    </v-list-item-content>
+-                </v-list-item>
+-                <v-list-item link :to="{name:'Order'}">
+-                    <v-list-item-action>
+-                        <v-icon>mdi-cart</v-icon> npm auditfixnpm
+-                    </v-list-item-action>
+-                    <v-list-item-content>
+-                        <v-list-item-title>Order</v-list-item-title>
+-                    </v-list-item-content>
+-                </v-list-item>
+-                <v-list-item link>
+-                    <v-list-item-action>
+-                        <v-icon>mdi-settings</v-icon>
+-                    </v-list-item-action>
+-                    <v-list-item-content>
+-                        <v-list-item-title>Country</v-list-item-title>
+-                    </v-list-item-content>
+-                </v-list-item>
+-            </v-list>
+-        </v-navigation-drawer>
+-
+-        <v-app-bar app right dark
+-                   src="http://picsum.photos/1920/100?blur">
+-            <v-toolbar-title>MyBerry</v-toolbar-title>
+-            <v-spacer />
+-            <v-btn icon>
+-                <v-icon>mdi-magnify</v-icon>
+-            </v-btn>
+-            <v-btn icon :to="{name:'Order'}">
+-                <v-icon>mdi-cart</v-icon>
+-            </v-btn>
+-
+-            <v-btn v-if="!isLoggedIn" icon :to="{name:'Login'}">
+-                <v-icon>mdi-login</v-icon>
+-            </v-btn>
+-            <v-app-bar-nav-icon @click.stop="drawer = !drawer"  />
+-        </v-app-bar>
+-
+-        <v-content light>
+-            <v-container fluid class="fill-height">
+-                <router-view  @login="isLoggedIn=$event"/>
+-            </v-container>
+-            <p><h2>Finde einen Frauenarzt in deiner Nähe</h2></p>
+-            <br>
+-            <p>Du bist auf der Suche nach einem Frauenarzt in deiner Nähe?</p>
+-            <p>Dann gib einfach im unten stehenden Feld deine Postleitzahl an und schon werden die Frauenärzte in deiner Nähe gezeigt</p>
+-
+-            <form>
+-                Postleitzahl:<br>
+-                <input type="text" name="plz" value="78120"><br>
+-                <input type="submit" name="button1" value="Suchen">
+-        </v-content>
+-
+-        <v-footer app>
+-            <span>&copy; 2019</span>
+-        </v-footer>
+-    </v-app>
+-</template>
+\ No newline at end of file
+Index: src/views/Login.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/views/Login.vue	(revision 3288994c22f80b616d781b2eb8ea40d4f4b0eb9e)
++++ src/views/Login.vue	(date 1577547557051)
+@@ -1,92 +1,153 @@
+ <template>
+-  <v-row
+-    align="center"
+-    justify="center"
+-  >
+-    <v-col
+-      cols="12"
+-      sm="8"
+-      md="4"
+-    >
+-      <v-card class="elevation-12">
+-        <v-toolbar
+-          color="primary"
+-          dark
+-          flat
+-        >
+-          <v-toolbar-title>Login</v-toolbar-title>
+-          <v-spacer/>
+-          <v-tooltip bottom>
+-            <template v-slot:activator="{ on }">
+-              <v-btn
+-                :href="source"
+-                icon
+-                large
+-                target="_blank"
+-                v-on="on"
+-              >
+-                <v-icon>mdi-code-tags</v-icon>
+-              </v-btn>
+-            </template>
+-            <span>Source</span>
+-          </v-tooltip>
+-          <v-tooltip right>
+-            <template v-slot:activator="{ on }">
+-              <v-btn
+-                icon
+-                large
+-                href="https://codepen.io/johnjleider/pen/pMvGQO"
+-                target="_blank"
+-                v-on="on"
+-              >
+-                <v-icon>mdi-codepen</v-icon>
+-              </v-btn>
+-            </template>
+-            <span>Codepen</span>
+-          </v-tooltip>
+-        </v-toolbar>
+-        <v-card-text>
+-          <v-form>
+-            <v-text-field
+-              label="Login"
+-              name="login"
+-              prepend-icon="mdi-account"
+-              type="text"
+-            />
++    <div id="app">
++        <v-app id="inspire">
++            <v-list dense>
++                <<v-list-item link :to="{name:'App'}">
++                <v-list-item-action>
++                    <v-icon>home</v-icon>
++                </v-list-item-action>
++                <v-list-item-content>
++                    <v-list-item-title>Startseite</v-list-item-title>
++                </v-list-item-content>
++            </v-list-item>
++                <v-list-item link :to="{name:'LogIn'}">
++                    <v-list-item-action>
++                        <v-icon>login</v-icon>
++                    </v-list-item-action>
++                    <v-list-item-content>
++                        <v-list-item-title>Login</v-list-item-title>
++                    </v-list-item-content>
++                </v-list-item>
++                <v-list-item link :to="{name:'Kalender'}">
++                    <v-list-item-action>
++                        <v-icon>calendar</v-icon>
++                    </v-list-item-action>
++                    <v-list-item-content>
++                        <v-list-item-title>Kalender</v-list-item-title>
++                    </v-list-item-content>
++                </v-list-item>
++                <v-list-item link :to="{name:'Arzt_finden'}">
++                    <v-list-item-action>
++                        <v-icon>map</v-icon>
++                    </v-list-item-action>
++                    <v-list-item-content>
++                        <v-list-item-title>Frauenarzt finden</v-list-item-title>
++                    </v-list-item-content>
++                </v-list-item>
++                <v-list-item @click="">
++                    <v-list-item-action>
++                        <v-icon>contact_mail</v-icon>
++                    </v-list-item-action>
++                    <v-list-item-content>
++                        <v-list-item-title>Kontakt</v-list-item-title>
++                    </v-list-item-content>
++                </v-list-item>
++            </v-list>
++            <v-content>
++                <v-container
++                        fluid
++                        fill-height
++                >
++                    <v-layout
++                            align-center
++                            justify-center
++                    >
++                        <v-flex
++                                xs12
++                                sm8
++                                md4
++                        >
++                            <v-card class="elevation-12">
++                                <v-toolbar
++                                        color="primary"
++                                        dark
++                                        flat
++                                >
++                                    <v-toolbar-title>Login form</v-toolbar-title>
++                                    <v-spacer></v-spacer>
++                                    <v-tooltip bottom>
++                                        <template v-slot:activator="{ on }">
++                                            <v-btn
++                                                    :href="source"
++                                                    icon
++                                                    large
++                                                    target="_blank"
++                                                    v-on="on"
++                                            >
++                                                <v-icon>mdi-code-tags</v-icon>
++                                            </v-btn>
++                                        </template>
++                                        <span>Source</span>
++                                    </v-tooltip>
++                                    <v-tooltip right>
++                                        <template v-slot:activator="{ on }">
++                                            <v-btn
++                                                    icon
++                                                    large
++                                                    href="https://codepen.io/johnjleider/pen/pMvGQO"
++                                                    target="_blank"
++                                                    v-on="on"
++                                            >
++                                                <v-icon>mdi-codepen</v-icon>
++                                            </v-btn>
++                                        </template>
++                                        <span>Codepen</span>
++                                    </v-tooltip>
++                                </v-toolbar>
++                                <v-card-text>
++                                    <v-form>
++                                        <v-text-field
++                                                label="Login"
++                                                name="login"
++                                                prepend-icon="person"
++                                                type="text"
++                                        ></v-text-field>
+ 
+-            <v-text-field
+-              id="password"
+-              label="Password"
+-              name="password"
+-              prepend-icon="mdi-textbox-password"
+-              type="password"
+-            />
+-          </v-form>
+-        </v-card-text>
+-        <v-card-actions>
+-          <v-spacer/>
+-          <v-btn color="primary"
+-             @click="$emit('login', true); $router.push({name:'Overview'})">
+-            Login
+-          </v-btn>
+-        </v-card-actions>
+-      </v-card>
+-    </v-col>
+-  </v-row>
++                                        <v-text-field
++                                                id="password"
++                                                label="Password"
++                                                name="password"
++                                                prepend-icon="lock"
++                                                type="password"
++                                        ></v-text-field>
++                                    </v-form>
++                                </v-card-text>
++                                <v-card-actions>
++                                    <v-spacer></v-spacer>
++                                    <v-btn color="primary">Login</v-btn>
++                                </v-card-actions>
++                            </v-card>
++                        </v-flex>
++                    </v-layout>
++                </v-container>
++            </v-content>
++        </v-app>
++    </div>
+ </template>
+ 
+ <script>
+-export default {
+-  props: {
+-    source: String
+-  },
+-  methods: {
+-    login() {
+-      db.connect()
+-        .then(()=>{
+-          this.$emit('login', true)
+-        })
++    export default {
++        name: "Login"
+     }
+-  }
+-}
+-</script>
+\ No newline at end of file
++</script>
++
++<style scoped>
++    body {
++        margin: 0;
++        padding: 0;
++        font-family: serif;
++        background-color: lightpink;
++        font-size: 20px
++    }
++
++
++
++    .login-box{
++        width: 280px;
++        position: absolute;
++        top: 50%;
++        left: 50%;
++        transform: translate(-50%, -50%);
++        color: white;
++    }
++</style>
+\ No newline at end of file
+Index: src/views/Overview.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/views/Overview.vue	(revision 3288994c22f80b616d781b2eb8ea40d4f4b0eb9e)
++++ src/views/Overview.vue	(date 1577542451297)
+@@ -36,7 +36,7 @@
+ 
+ <script>
+   export default {
+-    name: 'Overview',
++    name: 'Startseite',
+     data: () => {
+       return {
+         cards: []
+Index: src/views/Order.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/views/Order.vue	(revision 3288994c22f80b616d781b2eb8ea40d4f4b0eb9e)
++++ src/views/Order.vue	(date 1577542098826)
+@@ -1,4 +1,5 @@
+ <template>
++
+   <v-row>
+     <v-col class="col-md-4" v-for="(item,index) in products" :key="index">
+       <v-card elevation="10">
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/.gitignore	(revision 3288994c22f80b616d781b2eb8ea40d4f4b0eb9e)
++++ .idea/.gitignore	(date 1577545216233)
+@@ -1,3 +1,4 @@
+ 
+ # Default ignored files
+-/workspace.xml
+\ No newline at end of file
++/workspace.xml
++/shelf/
+Index: src/views/Arzt_finden
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/views/Arzt_finden	(date 1577542098816)
++++ src/views/Arzt_finden	(date 1577542098816)
+@@ -0,0 +1,35 @@
++<template>
++    <v-row dense>
++        <v-col
++                v-for="card in cards"
++                :key="card.title"
++        >
++            <v-card elevation="4">
++                <v-img
++                        :src="card.src"
++                        class="white--text align-end"
++                        gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
++                        height="140"
++                >
++                    <v-card-title v-text="card.title"/>
++                </v-img>
++
++                <v-card-actions>
++                    <v-spacer></v-spacer>
++
++                    <v-btn icon>
++                        <v-icon>mdi-heart</v-icon>
++                    </v-btn>
++
++                    <v-btn icon>
++                        <v-icon>mdi-bookmark</v-icon>
++                    </v-btn>
++
++                    <v-btn icon>
++                        <v-icon>mdi-share-variant</v-icon>
++                    </v-btn>
++                </v-card-actions>
++            </v-card>
++        </v-col>
++    </v-row>
++</template>
+Index: public/index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- public/index.html	(revision 3288994c22f80b616d781b2eb8ea40d4f4b0eb9e)
++++ public/index.html	(date 1577543761493)
+@@ -4,8 +4,8 @@
+     <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+-    <title>gis</title>
++    <link rel="icon" href="<%= BASE_URL %>strawberry_icon.png">
++    <title>MyBerry</title>
+   </head>
+   <body>
+     <noscript>
+Index: src/main.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main.js	(revision 3288994c22f80b616d781b2eb8ea40d4f4b0eb9e)
++++ src/main.js	(date 1577546044968)
+@@ -13,3 +13,10 @@
+   router: router,
+   render: h => h(App)
+ }).$mount('#app')
++new Vue({
++  el: '#app',
++  vuetify: new Vuetify(),
++  data: () => ({
++    drawer: null
++  })
++})
+Index: src/App.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/App.vue	(revision 3288994c22f80b616d781b2eb8ea40d4f4b0eb9e)
++++ src/App.vue	(date 1577547557037)
+@@ -6,28 +6,44 @@
+       right
+     >
+       <v-list dense>
+-        <v-list-item link :to="{name:'Overview'}">
++        <<v-list-item link :to="{name:'App'}">
++        <v-list-item-action>
++          <v-icon>home</v-icon>
++        </v-list-item-action>
++        <v-list-item-content>
++          <v-list-item-title>Startseite</v-list-item-title>
++        </v-list-item-content>
++      </v-list-item>
++        <v-list-item link :to="{name:'LogIn'}">
+           <v-list-item-action>
+-            <v-icon>mdi-spa</v-icon>
++            <v-icon>login</v-icon>
+           </v-list-item-action>
+           <v-list-item-content>
+-            <v-list-item-title>Overview</v-list-item-title>
++            <v-list-item-title>Login</v-list-item-title>
+           </v-list-item-content>
+         </v-list-item>
+-        <v-list-item link :to="{name:'Order'}">
++        <v-list-item link :to="{name:'Kalender'}">
+           <v-list-item-action>
+-            <v-icon>mdi-cart</v-icon> npm auditfixnpm
++            <v-icon>calendar</v-icon>
+           </v-list-item-action>
+           <v-list-item-content>
+-            <v-list-item-title>Order</v-list-item-title>
++            <v-list-item-title>Kalender</v-list-item-title>
+           </v-list-item-content>
+         </v-list-item>
+-        <v-list-item link>
++        <v-list-item link :to="{name:'Arzt_finden'}">
+           <v-list-item-action>
+-            <v-icon>mdi-settings</v-icon>
++            <v-icon>map</v-icon>
+           </v-list-item-action>
+           <v-list-item-content>
+-            <v-list-item-title>Country</v-list-item-title>
++            <v-list-item-title>Frauenarzt finden</v-list-item-title>
++          </v-list-item-content>
++        </v-list-item>
++        <v-list-item @click="">
++          <v-list-item-action>
++            <v-icon>contact_mail</v-icon>
++          </v-list-item-action>
++          <v-list-item-content>
++            <v-list-item-title>Kontakt</v-list-item-title>
+           </v-list-item-content>
+         </v-list-item>
+       </v-list>
+Index: src/views/Template.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/views/Template.vue	(revision 3288994c22f80b616d781b2eb8ea40d4f4b0eb9e)
++++ src/views/Template.vue	(date 1577546756164)
+@@ -1,3 +1,59 @@
++<div id="app">
++  <v-app id="inspire">
++    <v-navigation-drawer
++            v-model="drawer"
++            app
++    >
++      <v-list dense>
++        <v-list-item @click="">
++          <v-list-item-action>
++            <v-icon>home</v-icon>
++          </v-list-item-action>
++          <v-list-item-content>
++            <v-list-item-title>Startseite</v-list-item-title>
++          </v-list-item-content>
++        </v-list-item>
++        <v-list-item @click="">
++          <v-list-item-action>
++            <v-icon>calendar</v-icon>
++          </v-list-item-action>
++          <v-list-item-content>
++            <v-list-item-title>Kalender</v-list-item-title>
++          </v-list-item-content>
++        </v-list-item>
++        <v-list-item @click="">
++          <v-list-item-action>
++            <v-icon>contact_mail</v-icon>
++          </v-list-item-action>
++          <v-list-item-content>
++            <v-list-item-title>Kontakt</v-list-item-title>
++          </v-list-item-content>
++        </v-list-item>
++      </v-list>
++    </v-navigation-drawer>
++
++    <v-app-bar
++            app
++            color="red darken-2"
++            dark
++    >
++      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
++      <v-toolbar-title>Application</v-toolbar-title>
++    </v-app-bar>
++
++    <v-content>
++      hallo
++      <v-container
++              fluid
++              fill-height
++      >
++        <v-layout
++                align-center
++                justify-center
++        >
++          <v-flex text-xs-center>
++            <v-tooltip left>
++
+ <template>
+   <div class="body-1">
+     <!-- HTML-Code aus dem Body-Tag hier einfügen -->
+@@ -5,32 +61,26 @@
+ </template>
+ 
+ <script>
+-export default {
+-  // gebt jeder Page einen eigenen Namen
+-  name: 'template',
+-
+-  // benötigte Komponenten
+-  components: {},
+-
+-  // entspricht den HTML-Attributen
+-  props: {},
+-
+-  // Variablen-Speicher
+-  data() {
+-    return {}
+-  },
+-
+-  // reagieren auf prop-Veränderung
+-  watch: {},
+-
+-  // interne Methoden
+-  methods: [],
+-
+-  // Initialisierung
+-  created() {}
+-}
++  export default {
++    // gebt jeder Page einen eigenen Namen
++    name: 'template',
++    // benötigte Komponenten
++    components: {},
++    // entspricht den HTML-Attributen
++    props: {},
++    // Variablen-Speicher
++    data() {
++      return {}
++    },
++    // reagieren auf prop-Veränderung
++    watch: {},
++    // interne Methoden
++    methods: [],
++    // Initialisierung
++    created() {}
++  }
+ </script>
+ 
+ <style scoped>
+-/* CSS für diese Seite hier einfügen */
++  /* CSS für diese Seite hier einfügen */
+ </style>
+diff --git public/strawberry_icon.png public/strawberry_icon.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..b2236cea7570c28a5a5cbb85ca8d3574103e9f97
+GIT binary patch
+literal 1747
+zc$@*#1}yoBP)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F800004b3#c}2nYxW
+zd<bNS00009a7bBm0002p0002p0dP~I2LJ#78FWQhbW?9;ba!ELWdL_~cP?peYja~^
+zaAhuUa%Y?FJQ@H122e>vK~z|Ut(SXjm1h~if6sS4-|6*~QgD=73TUCFZa}t4HfeOY
+zOqbxcAS1GvWy}89T!>?u#h4hA#fUSSOsD@4=g1N>Mu-~*7qj7vCTy4uQSO%lz0gwH
+z)1K3wo^!t2;~%{UrKJbtNxnbc_j}&w`F+pjecumN<yIb`9<Z+(C#?$m7lv()*h%-b
+zlI`4zbGzJr-mNLi*kw*9Py@7?Njtr8{nFsBA8k-GVda2iDYgu5QbgnqG0dOd|LaF9
+z8#lJrnXa|RDsw(+*>-<w+1AyTUG7reSaSuaD8=4Q1Gtrmook+M_mcC=S^ljxu9>v&
+zUApBiFV(UTjTL~;KXuPhRlR&$07RrtMBWw=Q$%cy^(!kkt`*PpFl>{C2b&YYND+WI
+zhyeKa&kn2>5%0DDsA@k@1bzUtrk2(jVh9P-0ifxzHc74e3>w8mg@9bwFi|cjs%pLz
+z0IL)w;91}kpssRJ3IJ2gaRZ)%#xZ`TKvW31bl_|@Du#zdq*hf2ZW=&Dnw+Y{<K+vh
+z9x0^9mPCG#tZtfrF4H-1OhbJx+cOkht>62P4o>X+h$ZUaXA7)TH`%T3#*-8tn`c-V
+zM~%1o2)?JPxtRcDqK7A)C+v#Eg(cr;nP0b}-e_F43^9cM<2`i$vxDP%4yj?A(bjjj
+zTbd9q_4IJ;g?%&+D6cpTtTD=_Y(*%i;{v}4F6$dXe`bXENmc#hTmWJv?eu-GK3ZMg
+zkis()R66Ad0zlu9PTv3F+i~mWd&OFikaIge;AIx^j9qubFuxNH@kHTl5W?0m4R_B9
+z03eoZa;uWBf9bcI%G{KPWmqK51g_~~h%j)jk9|-5PFuv2-Oe(ajk$|`e>6<3SZvOp
+z2`*@Hy{aCZEdpz;r2R`VjeD%5V|`(JyVTyfXzG3T+yG}^dXI08Rj|Wtz?q25q`Vef
+zrroThWg67pFio!pl#9Xlix<=V8rJHB<0$|$X}@SW*2~Mbu5oMcZea96n$tT!#`J7b
+zD;8i!F#6sZ{k`2JUp1>{{L;TiBcwHCqm`QReGIgY9nlkU{$W+!KLubW?CowU`Qw$(
+zt}FBIsK9hBknyj}bq{lF$A_#Lwb<({XTI2ThWtkIPB_H2;`!qj;$jO-w4vpg>lfbF
+zm^3{Le`tLFFzoR@A3fAf^QdsZS%EzPHJ~B2QtB3Rtvqa1^F$$9J~=i3{E_1GU4J@p
+zvg55I9Vl_GYnb7a{S1EEqnGxbh<~N^Q_cZ4<WJBM7jFr`M5q>1L}VUJL_k$90xLx%
+zQS8k(<kOiq73!iwQ2nH)%9py=7S#vdijth=G-i~D1=G^D+(;N*k>3OiUUL?xY9ZTw
+z<#aIS-yM$mjR}>Lt$1cUtyOEpqNaotL@4X>N3WY-Zg@sLb{oub7%4P0;}WAcQUl;S
+z#q;!PaLrt$m>lv}U8mb5E=vvffl>gHHJIe%@$Empf$rC>6ob<M0OrjQsU{=AutxQB
+z0<=^13P3t6;%m&h{86$R&8Yj3Sxu{vypg#n`J9npn5bq>fKTvucj9Lh=nL}v-1#hi
+z3F(+kCRer@Np{&wcFhSeh`)F{y#c`GpulSJZn^&f*5{9r)rcPT*%=L#P=u;~$q{w_
+zl~IjUIiAlj7KgVCu)}G<N7)|^b5L{EoB#kr#83Z({&XK9;RM8$$e&d|GfRyCe9^3+
+zRxA$1qjblGeI)^?>fur1XTD8m`XWA|D!cN%Y#uvBsMq(!m-ENz*4Y68K8{AU00&`)
+z`@n1>A`etx?Ab<b#Y0pYXDHGl3F@6B3v6%dVD8rd6PdC70P@7t=RS=F<Dj$@Op2<$
+zKSI3vRR#}i;bJyVOsL9*Vvc|1()9Ra_!?6u_BGB!lsCiw-AxZiITm1bO^$Es$3#^-
+zG8%5^BzWXSde48C-s}+y6g8&HALDQ?&8b3`bm$XIq{l+|LomRwju-ErqhW?5+B<2p
+z<P=O75ix-+6&Nph7>ggLs_bi2npK!nI*u5WnHJ@Sg=3ifEzIy-*g4ow*rcl2{|jIm
+z%&Ibs7b0}iLhRs9JhzR6w-T2I94-;?AvxY4ogN`>SJnSat-T!pSAiHnGqAQAv)w?}
+p<%kx$NUvb*$q>G-s;91A^ItP@PY7#VR%rkL002ovPDHLkV1nZoM->17
+

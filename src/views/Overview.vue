@@ -36,7 +36,7 @@
 
 <script>
   export default {
-    name: 'Overview',
+    name: 'Startseite',
     data: () => {
       return {
         cards: []

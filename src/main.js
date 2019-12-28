@@ -13,3 +13,10 @@ new Vue({
   router: router,
   render: h => h(App)
 }).$mount('#app')
+new Vue({
+  el: '#app',
+  vuetify: new Vuetify(),
+  data: () => ({
+    drawer: null
+  })
+})

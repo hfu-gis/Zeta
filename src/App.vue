@@ -6,28 +6,44 @@
       right
     >
       <v-list dense>
-        <v-list-item link :to="{name:'Overview'}">
+        <<v-list-item link :to="{name:'App'}">
+        <v-list-item-action>
+          <v-icon>home</v-icon>
+        </v-list-item-action>
+        <v-list-item-content>
+          <v-list-item-title>Startseite</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+        <v-list-item link :to="{name:'LogIn'}">
           <v-list-item-action>
-            <v-icon>mdi-spa</v-icon>
+            <v-icon>login</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Overview</v-list-item-title>
+            <v-list-item-title>Login</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link :to="{name:'Order'}">
+        <v-list-item link :to="{name:'Kalender'}">
           <v-list-item-action>
-            <v-icon>mdi-cart</v-icon> npm auditfixnpm
+            <v-icon>calendar</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Order</v-list-item-title>
+            <v-list-item-title>Kalender</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link>
+        <v-list-item link :to="{name:'Arzt_finden'}">
           <v-list-item-action>
-            <v-icon>mdi-settings</v-icon>
+            <v-icon>map</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Country</v-list-item-title>
+            <v-list-item-title>Frauenarzt finden</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item @click="">
+          <v-list-item-action>
+            <v-icon>contact_mail</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Kontakt</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>

@@ -1,4 +1,5 @@
 <template>
+
   <v-row>
     <v-col class="col-md-4" v-for="(item,index) in products" :key="index">
       <v-card elevation="10">
