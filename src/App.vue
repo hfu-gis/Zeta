@@ -6,63 +6,62 @@
       right
     >
       <v-list dense>
-        <<v-list-item link :to="{name:'App'}">
-        <v-list-item-action>
-          <v-icon>home</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title>Startseite</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
         <v-list-item link :to="{name:'LogIn'}">
           <v-list-item-action>
-            <v-icon>login</v-icon>
+            <v-icon>mdi-login</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Login</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+        <v-list-item link :to="{name:'App'}">
+        <v-list-item-action>
+          <v-icon>mdi-home-heart</v-icon>
+        </v-list-item-action>
+        <v-list-item-content>
+          <v-list-item-title>Startseite</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
         <v-list-item link :to="{name:'Kalender'}">
           <v-list-item-action>
-            <v-icon>calendar</v-icon>
+            <v-icon>mdi-calendar-heart</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Kalender</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link :to="{name:'Arzt_finden'}">
+        <v-list-item link :to="{name:'Information'}">
           <v-list-item-action>
-            <v-icon>map</v-icon>
+            <v-icon>mdi-information</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Frauenarzt finden</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item @click="">
-          <v-list-item-action>
-            <v-icon>contact_mail</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Kontakt</v-list-item-title>
+            <v-list-item-title>Info</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
     <v-app-bar app right dark
-       src="http://picsum.photos/1920/100?blur">
-      <v-toolbar-title>Gras-Shoppers</v-toolbar-title>
+       src="https://www.landwirtschaft.de/fileadmin/_processed_/2/b/csm_Erdbeeren_AdobeStock_139579677_Tim-UR_460d6ba1ef.jpg">
+      <v-img
+              class="mx-2"
+              src="http://localhost:8080/strawberry_icon.png"
+              max-height="40"
+              max-width="40"
+              contain
+      ></v-img>
+      <v-toolbar-title>MyBerry</v-toolbar-title>
+      <v-icon></v-icon>
       <v-spacer />
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-      <v-btn icon :to="{name:'Order'}">
-        <v-icon>mdi-cart</v-icon>
-      </v-btn>
 
-      <v-btn v-if="!isLoggedIn" icon :to="{name:'Login'}">
+
+      <!--<v-btn v-if="!isLoggedIn" icon :to="{name:'Login'}">
         <v-icon>mdi-login</v-icon>
-      </v-btn>
+      </v-btn>-->
+          <v-btn icon :to="{name:'Registration'}">
+            <v-icon>mdi-account-plus</v-icon>
+          </v-btn>
+
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"  />
     </v-app-bar>
 
@@ -73,14 +72,13 @@
     </v-content>
 
     <v-footer app>
-      <span>&copy; 2019</span>
+      <span>&copy; 2020</span>
     </v-footer>
   </v-app>
 </template>
 
 <script>
 import Layout from './components/Layout';
-
 export default {
   name: 'App',
 
