@@ -3,13 +3,13 @@
         <v-col>
             <v-sheet height="64">
                 <v-toolbar flat color="white">
-                    <v-btn outlined class="mr-4" @click="setToday">
-                        Today
+                    <v-btn outlined class="mr-4" color="red lighten-2" @click="setToday">
+                        Heute
                     </v-btn>
-                    <v-btn fab text small @click="prev">
+                    <v-btn fab text small color="red lighten-2" @click="prev">
                         <v-icon small>mdi-chevron-left</v-icon>
                     </v-btn>
-                    <v-btn fab text small @click="next">
+                    <v-btn fab text small color="red lighten-2" @click="next">
                         <v-icon small>mdi-chevron-right</v-icon>
                     </v-btn>
                     <v-toolbar-title>{{ title }}</v-toolbar-title>
@@ -18,6 +18,7 @@
                         <template v-slot:activator="{ on }">
                             <v-btn
                                     outlined
+                                    color="red lighten-2"
                                     v-on="on"
                             >
                                 <span>{{ typeToLabel[type] }}</span>
@@ -26,16 +27,13 @@
                         </template>
                         <v-list>
                             <v-list-item @click="type = 'day'">
-                                <v-list-item-title>Day</v-list-item-title>
+                                <v-list-item-title>Tag</v-list-item-title>
                             </v-list-item>
                             <v-list-item @click="type = 'week'">
-                                <v-list-item-title>Week</v-list-item-title>
+                                <v-list-item-title>Woche</v-list-item-title>
                             </v-list-item>
                             <v-list-item @click="type = 'month'">
-                                <v-list-item-title>Month</v-list-item-title>
-                            </v-list-item>
-                            <v-list-item @click="type = '4day'">
-                                <v-list-item-title>4 days</v-list-item-title>
+                                <v-list-item-title>Monat</v-list-item-title>
                             </v-list-item>
                         </v-list>
                     </v-menu>
@@ -48,19 +46,17 @@
                         color="primary"
                         :events="events"
                         :event-color="getEventColor"
-                        :event-margin-bottom="3"
-                        :now="today"
+                        :now="heute"
                         :type="type"
                         @click:event="showEvent"
                         @click:more="viewDay"
                         @click:date="viewDay"
                         @change="updateRange"
-                />
+                ></v-calendar>
                 <v-menu
                         v-model="selectedOpen"
                         :close-on-content-click="false"
                         :activator="selectedElement"
-                        full-width
                         offset-x
                 >
                     <v-card
@@ -102,150 +98,24 @@
         </v-col>
     </v-row>
 </template>
-
 <script>
     export default {
         data: () => ({
-            today: '2019-01-01',
-            focus: '2019-01-01',
+            focus: '',
             type: 'month',
             typeToLabel: {
-                month: 'Month',
-                week: 'Week',
-                day: 'Day',
-                '4day': '4 Days',
+                month: 'Monat',
+                week: 'Woche',
+                day: 'Tag',
             },
             start: null,
             end: null,
             selectedEvent: {},
             selectedElement: null,
             selectedOpen: false,
-            events: [
-                {
-                    name: 'Vacation',
-                    details: 'Going to the beach!',
-                    start: '2018-12-29',
-                    end: '2019-01-01',
-                    color: 'blue',
-                },
-                {
-                    name: 'Meeting',
-                    details: 'Spending time on how we do not have enough time',
-                    start: '2019-01-07 09:00',
-                    end: '2019-01-07 09:30',
-                    color: 'indigo',
-                },
-                {
-                    name: 'Large Event',
-                    details: 'This starts in the middle of an event and spans over multiple events',
-                    start: '2018-12-31',
-                    end: '2019-01-04',
-                    color: 'deep-purple',
-                },
-                {
-                    name: '3rd to 7th',
-                    details: 'Testing',
-                    start: '2019-01-03',
-                    end: '2019-01-07',
-                    color: 'cyan',
-                },
-                {
-                    name: 'Big Meeting',
-                    details: 'A very important meeting about nothing',
-                    start: '2019-01-07 08:00',
-                    end: '2019-01-07 11:30',
-                    color: 'red',
-                },
-                {
-                    name: 'Another Meeting',
-                    details: 'Another important meeting about nothing',
-                    start: '2019-01-07 10:00',
-                    end: '2019-01-07 13:30',
-                    color: 'brown',
-                },
-                {
-                    name: '7th to 8th',
-                    start: '2019-01-07',
-                    end: '2019-01-08',
-                    color: 'blue',
-                },
-                {
-                    name: 'Lunch',
-                    details: 'Time to feed',
-                    start: '2019-01-07 12:00',
-                    end: '2019-01-07 15:00',
-                    color: 'deep-orange',
-                },
-                {
-                    name: '30th Birthday',
-                    details: 'Celebrate responsibly',
-                    start: '2019-01-03',
-                    color: 'teal',
-                },
-                {
-                    name: 'New Year',
-                    details: 'Eat chocolate until you pass out',
-                    start: '2019-01-01',
-                    end: '2019-01-02',
-                    color: 'green',
-                },
-                {
-                    name: 'Conference',
-                    details: 'The best time of my life',
-                    start: '2019-01-21',
-                    end: '2019-01-28',
-                    color: 'grey darken-1',
-                },
-                {
-                    name: 'Hackathon',
-                    details: 'Code like there is no tommorrow',
-                    start: '2019-01-30 23:00',
-                    end: '2019-02-01 08:00',
-                    color: 'black',
-                },
-                {
-                    name: 'event 1',
-                    start: '2019-01-14 18:00',
-                    end: '2019-01-14 19:00',
-                    color: '#4285F4',
-                },
-                {
-                    name: 'event 2',
-                    start: '2019-01-14 18:00',
-                    end: '2019-01-14 19:00',
-                    color: '#4285F4',
-                },
-                {
-                    name: 'event 5',
-                    start: '2019-01-14 18:00',
-                    end: '2019-01-14 19:00',
-                    color: '#4285F4',
-                },
-                {
-                    name: 'event 3',
-                    start: '2019-01-14 18:30',
-                    end: '2019-01-14 20:30',
-                    color: '#4285F4',
-                },
-                {
-                    name: 'event 4',
-                    start: '2019-01-14 19:00',
-                    end: '2019-01-14 20:00',
-                    color: '#4285F4',
-                },
-                {
-                    name: 'event 6',
-                    start: '2019-01-14 21:00',
-                    end: '2019-01-14 23:00',
-                    color: '#4285F4',
-                },
-                {
-                    name: 'event 7',
-                    start: '2019-01-14 22:00',
-                    end: '2019-01-14 23:00',
-                    color: '#4285F4',
-                },
-            ],
+            events: [],
+            colors: ['red', 'red darken-4', 'red lighten-3'],
+            names: ['Periode', 'Eisprung', 'Pille nehmen'],
         }),
         computed: {
             title () {
@@ -269,8 +139,6 @@
                     case 'month':
                         return `${startMonth} ${startYear}`
                     case 'week':
-                    case '4day':
-                        return `${startMonth} ${startDay} ${startYear} - ${suffixMonth} ${endDay} ${suffixYear}`
                     case 'day':
                         return `${startMonth} ${startDay} ${startYear}`
                 }
@@ -288,7 +156,7 @@
         methods: {
             viewDay ({ date }) {
                 this.focus = date
-                this.type = 'day'
+                this.type = 'Tag'
             },
             getEventColor (event) {
                 return event.color
@@ -319,18 +187,45 @@
                 nativeEvent.stopPropagation()
             },
             updateRange ({ start, end }) {
-                // You could load events from an outside source (like database) now that we have the start and end dates on the calendar
+                const events = []
+
+                const min = new Date(`${start.date}T00:00:00`)
+                const max = new Date(`${end.date}T23:59:59`)
+                const days = (max.getTime() - min.getTime()) / 86400000
+                const eventCount = this.rnd(days, days + 20)
+
+                for (let i = 0; i < eventCount; i++) {
+                    const allDay = this.rnd(0, 3) === 0
+                    const firstTimestamp = this.rnd(min.getTime(), max.getTime())
+                    const first = new Date(firstTimestamp - (firstTimestamp % 900000))
+                    const secondTimestamp = this.rnd(2, allDay ? 288 : 8) * 900000
+                    const second = new Date(first.getTime() + secondTimestamp)
+
+                    events.push({
+                        name: this.names[this.rnd(0, this.names.length - 1)],
+                        start: this.formatDate(first, !allDay),
+                        end: this.formatDate(second, !allDay),
+                        color: this.colors[this.rnd(0, this.colors.length - 1)],
+                    })
+                }
+
                 this.start = start
                 this.end = end
+                this.events = events
             },
             nth (d) {
                 return d > 3 && d < 21
                     ? 'th'
                     : ['th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th'][d % 10]
             },
+            rnd (a, b) {
+                return Math.floor((b - a + 1) * Math.random()) + a
+            },
+            formatDate (a, withTime) {
+                return withTime
+                    ? `${a.getFullYear()}-${a.getMonth() + 1}-${a.getDate()} ${a.getHours()}:${a.getMinutes()}`
+                    : `${a.getFullYear()}-${a.getMonth() + 1}-${a.getDate()}`
+            },
         },
     }
 </script>
-<style scoped>
-
-</style>
