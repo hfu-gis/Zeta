@@ -2,7 +2,7 @@
     <v-app id="inspire">
         <v-content>
             <v-container
-                    class="fill-height"
+
                     fluid
             >
                 <v-row
@@ -14,30 +14,30 @@
                             sm="8"
                             md="4"
                     >
-                        <v-card class="elevation-12">
+                        <v-card class="box">
                             <v-toolbar
-                                    color="primary"
+                                    color="red"
                                     dark
                                     flat
                             >
-                                <v-toolbar-title>Login form</v-toolbar-title>
+                                <v-toolbar-title>Login</v-toolbar-title>
                                 <v-spacer />
                             </v-toolbar>
                             <v-card-text>
                                 <v-form>
                                     <v-text-field
-                                            label="name"
+                                            class="haja"
+                                            label="Name"
                                             name="name"
-                                            prepend-icon="person"
                                             type="text"
                                             v-model="username"
                                     />
 
                                     <v-text-field
+                                            class="hanoi"
                                             id="password"
-                                            label="Password"
+                                            label="Passwort"
                                             name="password"
-                                            prepend-icon="lock"
                                             type="password"
                                             v-model="password"
                                     />
@@ -45,7 +45,7 @@
                             </v-card-text>
                             <v-card-actions>
                                 <v-spacer />
-                                <v-btn color="primary">Login</v-btn>
+                                <v-btn color="red">Login</v-btn>
                             </v-card-actions>
                         </v-card>
                     </v-col>
@@ -63,12 +63,12 @@
         },
         date(){
             return {
-               password:' ',
+                password:' ',
                 username:' '
             }
-    },
+        },
     };
 </script>
 <style scoped>
-
-</style>
+.box{width: 1000px}
+</style>}
