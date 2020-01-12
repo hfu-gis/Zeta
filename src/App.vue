@@ -6,7 +6,7 @@
       right
     >
       <v-list dense>
-        <v-list-item link :to="{name:'LogIn'}">
+        <v-list-item link :to="{name:'Login'}">
           <v-list-item-action>
             <v-icon>mdi-login</v-icon>
           </v-list-item-action>
