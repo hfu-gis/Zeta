@@ -5,7 +5,21 @@
       app dark color="red"
       right
     >
-      <v-list dense>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              My Berry
+            </v-list-item-title>
+            <v-list-item-subtitle>
+              Menü
+            </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-divider></v-divider>
+
+         <v-list dense>
+
         <v-list-item link :to="{name:'Login'}">
           <v-list-item-action>
             <v-icon>mdi-login</v-icon>
@@ -14,7 +28,7 @@
             <v-list-item-title>Login</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link :to="{name:'App'}">
+        <v-list-item link :to="{name:'Startseite.vue'}">
         <v-list-item-action>
           <v-icon>mdi-home-heart</v-icon>
         </v-list-item-action>
@@ -64,10 +78,12 @@
 
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"  />
     </v-app-bar>
-    <v-content light>
+    <v-content class="mx-6" light>
       <v-container fluid class="fill-height">
         <router-view  @login="isLoggedIn=$event"/>
       </v-container>
+      Hallo
+      test
     </v-content>
 
     <v-footer app>
