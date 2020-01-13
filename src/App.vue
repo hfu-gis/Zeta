@@ -64,7 +64,6 @@
 
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"  />
     </v-app-bar>
-
     <v-content light>
       <v-container fluid class="fill-height">
         <router-view  @login="isLoggedIn=$event"/>
@@ -72,8 +71,36 @@
     </v-content>
 
     <v-footer app>
-      <span>&copy; 2020</span>
-    </v-footer>
+      <v-row
+                  justify="center"
+                  no-gutters
+          >
+            <v-btn
+                    v-for="link in links"
+                    :key="link"
+                    color="white"
+                    text
+                    rounded
+                    class="my-2"
+            >
+              {{ link }}
+            </v-btn>
+            <v-col
+                    class="red py-4 text-center white--text"
+                    cols="12"
+            >
+             <div align="center">
+              <v-img
+                      class="mx-2"
+                      position="margin"
+                      src="https://i.ibb.co/K9kpKxY/myberry-logo.jpg" max-height="100"
+                      max-width="120" alt="">
+
+              </v-img>
+             </div>
+            </v-col>
+          </v-row>
+        </v-footer>
   </v-app>
 </template>
 
