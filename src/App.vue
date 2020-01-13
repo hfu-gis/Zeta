@@ -2,7 +2,7 @@
   <v-app id="inspire">
     <v-navigation-drawer
       v-model="drawer"
-      app dark
+      app dark color="red"
       right
     >
       <v-list dense>
