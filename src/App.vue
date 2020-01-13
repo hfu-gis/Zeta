@@ -28,7 +28,7 @@
             <v-list-item-title>Login</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link :to="{name:'Startseite.vue'}">
+        <v-list-item link :to="{name:'Overview'}">
         <v-list-item-action>
           <v-icon>mdi-home-heart</v-icon>
         </v-list-item-action>
