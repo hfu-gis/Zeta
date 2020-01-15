@@ -90,8 +90,7 @@
       <v-container fluid class="fill-height">
         <router-view  @login="isLoggedIn=$event"/>
       </v-container>
-      Hallo
-      test
+
     </v-content>
 
     <v-footer app>

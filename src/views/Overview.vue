@@ -5,9 +5,10 @@
         <h2> <p class="my-5 font-weight-black">Deine App für die Erdbeerwoche.</p></h2>
         <p class="font-weight-regular">Aktuell</p>
     </div>
+
         <v-row>
     <v-card elevation="8"
-            class="mx-6"
+            class="mx-8"
             max-width="400"
     >
         <v-img
@@ -34,17 +35,23 @@
                 Teilen
             </v-btn>
 
+            <router-link
+                    :to='/blog1/'
+                    class="button"
+            >
+                Mehr dazu
+            </router-link>
             <v-btn
                     color="red"
                     text
             >
-                Mehr dazu
+             Mehr dazu
             </v-btn>
         </v-card-actions>
     </v-card>
 
         <v-card elevation="8"
-                class="mx-6"
+                class="mx-8"
                 max-width="400"
         >
             <v-img
@@ -58,9 +65,9 @@
             <v-card-subtitle class="pb-0">Melanie Fleischer</v-card-subtitle>
 
             <v-card-text class="text--primary">
-                <div>Die Menstruationstasse</div>
+                <div>Must Haves</div>
 
-                <div>Was du alles wissen solltest</div>
+                <div>Das solltest du nie vergessen</div>
             </v-card-text>
 
             <v-card-actions>
@@ -72,6 +79,7 @@
                 </v-btn>
 
                 <v-btn
+                       link :to="/blog2/"
                         color="red"
                         text
                 >
@@ -81,7 +89,7 @@
         </v-card>
 
         <v-card elevation="8"
-                class="mx-6"
+                class="mx-8"
                 max-width="400"
         >
             <v-img
@@ -95,9 +103,9 @@
             <v-card-subtitle class="pb-0">Eva Breuninger</v-card-subtitle>
 
             <v-card-text class="text--primary">
-                <div>Die Menstruationstasse</div>
+                <div>Regelschmerzen</div>
 
-                <div>Was du alles wissen solltest</div>
+                <div>Unsere Tipps und Tricks für dich!</div>
             </v-card-text>
 
             <v-card-actions>
@@ -109,6 +117,7 @@
                 </v-btn>
 
                 <v-btn
+                        link :to="{name:'blog3'}"
                         color="red"
                         text
                 >
