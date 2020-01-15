@@ -5,6 +5,7 @@ import Overview from '../views/Overview'
 import App from '../App'
 import Login from "../views/Login";
 import Kalender from '../views/Kalender'
+import Blog from '../views/Blog'
 
 
 Vue.use(VueRouter)
@@ -37,6 +38,10 @@ export default new VueRouter({
             name: 'Kalender',
             component: Kalender
         },
-
+        {
+            path: '/Blog',
+            name: 'Blog',
+            component: Blog
+        },
     ]
 })

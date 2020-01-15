@@ -52,7 +52,15 @@
             <v-list-item-title>Info</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-      </v-list>
+        <v-list-item link :to="{name:'Blog'}">
+            <v-list-item-action>
+                <v-icon>mdi-glasses</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+                <v-list-item-title>Blog</v-list-item-title>
+            </v-list-item-content>
+        </v-list-item>
+        </v-list>
     </v-navigation-drawer>
 
     <v-app-bar app right dark
