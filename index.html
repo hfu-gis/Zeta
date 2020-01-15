@@ -6,12 +6,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MyBerry</title>
-  <meta name="keywords" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.">
-  <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.">
+
   
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/flat-icon/flaticon.css">
   <link rel="stylesheet" href="temp/styles/styles.css">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+
 </head>
 
 
@@ -23,12 +24,12 @@
 
         <nav class="navbar">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span> 
-            </button>
             <a class="navbar-brand" href="#">MyBerry</a>
+          </div>
+
+
+          <div class="logo">
+            <img class="img-responsive" src="assets/images/favicon.ico" alt="">
           </div>
 
           <div class="collapse navbar-collapse" id="myNavbar">
@@ -46,7 +47,7 @@
 
         <div class="header__content text-center">
           <h1 class="header__content__title">MyBerry</h1>
-          <p class="header__content__paragraph">Willkommen auf MyBerry. Deine App für die Erdbeerwoche</p>
+          <p class="header__content__paragraph">Willkommen bei MyBerry. Deine App für die Erdbeerwoche</p>
           <a class="button button--margin-right button--hover" href="#">Entdecken</a>
         </div>
 
@@ -88,6 +89,7 @@
       </div>
     </section>
 
+<!--  -->
 
     <section class="contact contact--bg">
       <div class="container">
@@ -117,6 +119,7 @@
                   <p class="about__content-paragraph"">Unser Ziel ist es, Frauen und Mädchen den Alltag mit Ihrem Mensturationszyklus zu erleichtern.
                 Wir sind ein junges Team, das seinen Nutzerinnern einfache Lösungen zum Managen ihrer Periode anbietet. </p>
                   <a class="button--light" href="#">Mehr</a>
+
                 </div>
               </div>
             </div>
@@ -198,9 +201,15 @@
         <div class="container">
           <div class="page-section">
             <div class="row gutters-100">
+
+
+
+
+
               <div class="col-md-4 col-lg-3">
                 <div class="footer__first">
                   <h2 class="footer__title">MyBerry</h2>
+
                   <p class="footer-first__paragraph">Uns gibt es auch auf Social Media! Schau vorbei! </p>
                   <ul class="footer-first__social-icons">
                     <li><a href="#"><i class="flaticon-facebook-letter-logo"></i></a></li>
@@ -210,6 +219,10 @@
                   </ul>
                 </div>
               </div>
+
+
+
+
               <div class="col-md-6 col-lg-2">
                 <div class="footer__second">
                   <h2 class="footer__title">MENÜ</h2>
@@ -223,6 +236,8 @@
                   </ul>
                 </div>
               </div>
+
+
               <div class="col-md-6 col-lg-3">
                 <div class="footer__third">
                   <h2 class="footer__title">KONTAKTIERE UNS</h2>
@@ -232,11 +247,15 @@
                   </ul>
                   <h4 class="footer__subscribe__title">Newsletter abonnieren</h4>
                   <div class="subscribe-section">
-                    <input type="email" class="form-control" size="50" placeholder="Email eingeben" required>
+                    <input type="email" class="form-control" size="50" placeholder="E-Mail eingeben" required>
                     <button class="subscribe-section__button" type="button"><img src="assets/images/send-icon.png" alt=""></button>
                   </div>
                 </div>
               </div>
+
+
+
+
               <div class="col-md-6 col-lg-4">
                 <div class="footer__fourth">
                   <h4 class="footer__title">INSTAGRAM</h4>
@@ -258,7 +277,7 @@
               </div>
             </div>
             <hr class="footer__horizontal-bar">
-            <p class="footer__bottom-paragraph">&copy; Copyright 2019 <a href="#" style="color: #000000;font-weight:bold;">MyBerry</a>. All Rights Reserved</p>
+            <p class="footer__bottom-paragraph">&copy; Copyright 2019 <a href="#" style="color: white;font-weight:bold;">MyBerry</a>. All Rights Reserved</p>
           </div>
         </div>
       </footer>
@@ -267,22 +286,9 @@
     
   
 
-  <script src="assets/jquery/jquery-3.2.1.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
-  <script>
-    $(document).ready(function() {
 
-      var $videoSrc = $("#video").attr("src");
-
-      $('#myModal').on('hide.bs.modal', function (e) {
-        $("#video").attr('src',$videoSrc); 
-      });
-
-
-
-    });
-  </script>
 </body>
 </html>
 
