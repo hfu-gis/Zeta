@@ -44,7 +44,7 @@
             <v-list-item-title>Kalender</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link :to="{name:'Information'}">
+        <v-list-item link :to="{name:'Info'}">
           <v-list-item-action>
             <v-icon>mdi-information</v-icon>
           </v-list-item-action>
